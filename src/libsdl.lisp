@@ -37,7 +37,7 @@
 
 (defcfun "SDL_CreateWindow" sdl-window
   (title :string) (x :int) (y :int)
-  (w :int) (h :int) (flags :uint32))
+  (w :int) (h :int) (flags sdl-windowflags))
 
 ;;; The Delay function.
 ;;; void SDL_Delay(Uint32 ms)

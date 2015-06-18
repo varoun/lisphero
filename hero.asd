@@ -22,4 +22,5 @@
             :serial t
             :pathname #p""
             :components
-            ((:file "src/libsdl")))))
+            ((:file "src/libsdl-header")
+             (:file "src/libsdl")))))
