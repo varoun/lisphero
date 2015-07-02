@@ -49,21 +49,18 @@
 (defcfun "SDL_DestroyWindow" :void
   (window sdl-window))
 
-;;; Create and display a window
-(defun create-window (title x y width height)
-  "Create and display a window."
-  ;; #x2 is  SDL_WINDOW_OPENGL
-  (let ((window (sdl-createwindow title x y width height #x2)))
-    (sdl-delay 3000)
-    (sdl-destroywindow window)))
 
-;;; TODO(varoun): Define the SDL_WindowFlags enumeration.
-;;; TODO(varoun): Define the WindowPosition related constants like
-;;; SDL_WINDOWPOS_UNDEFINED.
+;; HERO> (sdl-init +SDL-INIT-VIDEO+)
 
-;; #x20 is SDL_INIT_VIDEO, #x1FFF0000 is SDL_WINDOWPOS_UNDEFINED
-;; HERO> (sdl-init #x20)
 ;; 0
-;; HERO> (create-window "Test Window" #x1FFF0000 #x1FFF0000 640 480)
+;; HERO>
+;; HERO> (let ((window (sdl-createwindow "A SDL2 Window"
+;;                                    +SDL-WINDOWPOS-UNDEFINED+
+;;                                    +SDL-WINDOWPOS-UNDEFINED+
+;;                                    640 480
+;;                                    :sdl-window-resizable)))
+;;      (sdl-delay 10000)
+;;      (sdl-destroywindow window))
+
 ;; NIL
 ;; HERO>
